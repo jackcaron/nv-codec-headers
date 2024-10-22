@@ -471,8 +471,8 @@ typedef CUresult CUDAAPI tcuEventQuery(CUevent hEvent);
 typedef CUresult CUDAAPI tcuEventRecord(CUevent hEvent, CUstream hStream);
 
 // NEW
-typedef void(CUDA_CB* CUhostFn)(void* userData);
-typedef CUresult CUDAAPI tcuLaunchHostFunc(CUstream hStream, CUhostFn fn, void* userData);
+typedef void CUDAAPI CUhostFn(void *userdata);
+typedef CUresult CUDAAPI tcuLaunchHostFunc(CUstream hStream, CUhostFn *fn, void* userData);
 
 typedef CUresult CUDAAPI tcuLaunchKernel(CUfunction f, unsigned int gridDimX, unsigned int gridDimY, unsigned int gridDimZ, unsigned int blockDimX, unsigned int blockDimY, unsigned int blockDimZ, unsigned int sharedMemBytes, CUstream hStream, void** kernelParams, void** extra);
 typedef CUresult CUDAAPI tcuLinkCreate(unsigned int numOptions, CUjit_option* options, void** optionValues, CUlinkState* stateOut);
