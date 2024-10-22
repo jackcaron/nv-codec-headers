@@ -191,6 +191,7 @@ typedef struct CudaFunctions {
     tcuEventQuery *cuEventQuery;
     tcuEventRecord *cuEventRecord;
 
+tcuLaunchHostFunc *cuLaunchHostFunc; // NEW
     tcuLaunchKernel *cuLaunchKernel;
     tcuLinkCreate *cuLinkCreate;
     tcuLinkAddData *cuLinkAddData;
@@ -358,6 +359,7 @@ static inline int cuda_load_functions(CudaFunctions **functions, void *logctx)
     LOAD_SYMBOL(cuEventQuery, tcuEventQuery, "cuEventQuery");
     LOAD_SYMBOL(cuEventRecord, tcuEventRecord, "cuEventRecord");
 
+LOAD_SYMBOL(cuLaunchHostFunc, tcuLaunchHostFunc, "cuLaunchHostFunc"); // NEW
     LOAD_SYMBOL(cuLaunchKernel, tcuLaunchKernel, "cuLaunchKernel");
     LOAD_SYMBOL(cuLinkCreate, tcuLinkCreate, "cuLinkCreate");
     LOAD_SYMBOL(cuLinkAddData, tcuLinkAddData, "cuLinkAddData");
